@@ -1,0 +1,34 @@
+Pessoal, tenho um array:
+
+inscritos: [
+    [   
+     Nome
+     Matricula
+     Email
+    ],
+    [
+     Everton,
+     102030,
+     everton@gmail.com   
+    ],
+     [
+     Pavan,
+     111111,
+     pavan@gmail.com   
+    ]
+]
+
+Como obter a saída em JSON, conforme abaixo:
+
+inscritos: {
+    {
+     Nome: Everton,
+     Matricual: 102030,
+     everton@gmail.com
+    },
+     {
+     Nome: Pavan,
+     Matricual: 111111,
+     pavan@gmail.com
+    }
+}

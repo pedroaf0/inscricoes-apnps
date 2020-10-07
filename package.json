@@ -1,0 +1,21 @@
+{
+  "name": "google-sheets-api",
+  "version": "1.0.0",
+  "description": "https://github.blog/2020-04-15-npm-has-joined-github/ https://www.npmjs.com/package/googleapis#service-account-credentials https://codingfundas.com/how-to-read-edit-google-sheets-using-node-js/index.html",
+  "main": "googleSheetsService.js",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "googleapis": "^60.0.1",
+    "lite-server": "^2.5.4",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,60 @@
+## LINKS
+
+https://github.blog/2020-04-15-npm-has-joined-github/
+https://www.npmjs.com/package/googleapis#service-account-credentials
+https://codingfundas.com/how-to-read-edit-google-sheets-using-node-js/index.html
+
+https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/create?apix_params=%7B%22resource%22%3A%7B%22properties%22%3A%7B%22title%22%3A%22Nova-Planilha%22%7D%2C%22spreadsheetId%22%3A%22%22%2C%22spreadsheetUrl%22%3A%22%22%7D%7D
+
+https://voidcanvas.com/node-js-googleapis-v4-spreadsheet/
+
+## PASSOS
+
+[] LER DADOS DOS INSCRITOS
+[] ADICONAR COLUNA "Homologação" - Com opções de SIM/NÂO (Função Append)
+[] DIVIDIR DADOS POR CURSO E CRIAR NOVAS PLANILHAS
+[] LER DADOS DA PLANILHA DE HOMOLOGADOS
+[] EXPORTAR DADOS PARA O LDAP
+
+
+
+## TROUBLESHOOTING
+
+[] Solved: “The caller does not have permission” https://www.roelpeters.be/solved-the-caller-does-not-have-permission-using-the-api-with-a-private-google-spreadsheet/
+Compartilhar a planilha com o email da conta de serviço
+
+
+
+## RASCUNHOS
+
+Talvez criar consts de ID de planilha de cada cursos
+Bloquear acesso a plans, liberar apenas para o coordenador do curso na aba
+
+
+
+# CREATE
+Achar jeito de salvar dentro da pasta
+Já da permissão pra usuários
+
+# TOP
+https://medium.com/@bretcameron/how-to-use-the-google-drive-api-with-javascript-57a6cc9e5262
+https://developers.google.com/drive/api/v3/about-files
+https://developers.google.com/sheets/api/reference/rest
+
+
+
+
+# OUT
+Como achar todos os arquivos/pastas criados por um usuario?
+
+# FUNÇÕES
+[x] LER INFORMAÇÕES (propriedades) DE UMA PLANILHA
+[x] LER VALORES DE UMA PLANILHA
+[x] COPIAR VALORES DE UMA PLANILHA PARA OUTRA PLANILHA (já criada)
+[x] CRIAR NOVA PLANILHA
+[x] MOVER PLANILHA DE PASTA
+[x] MUDAR PERMISSÕES DA PLANILHA 
+[x] ADICIONAR INFORMAÇÕES EM UMA PLANILHA
+[ ] CONGELAR CELULAS DE UMA PLANILHA
+[ ] FORMATAR CELULAS DE UMA PLANILHA (cores,alinhamento,..)
+[ ] DIVIDIR PLANILHA POR CURSO E DAR PERMISSÃO APENAS PARA O COORDENADOR
