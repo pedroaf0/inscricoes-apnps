@@ -15,12 +15,11 @@ const request = {
   field: 'destinationSpreadsheetId'
 }
 
-const requestCreate = {
+const createRequest = {
   title: 'CriadaPlanilha '
 }
 
 // 
-const cursos = ["Agronomina", "Agronegócios", "ADS"]
 
 module.exports = {
 
@@ -92,7 +91,7 @@ module.exports = {
       const auth = await getAuthToken();
       const response = await createSpreadSheet({
         auth,
-        requestCreate
+        createRequest
       })
       console.log('output for getSpreadSheetValues', JSON.stringify(response.data, null, 2));
       const idNewSpreadsheet = response.data.spreadsheetId
@@ -193,15 +192,17 @@ module.exports = {
 // GOOGLE DRIVE API
 
   async testMoveSpreadSheet(req, res) {
-    let folderId = '14KNHKofE-Ospjgk0-Pr1S8BDUL7lS1AR'
-    let fileId = '1mu7fDaLoZoijze3GYA-YfZr53JoHZB4zNo19iyHOA6k'
+    const moveRequest = {
+      folderId: '14KNHKofE-Ospjgk0-Pr1S8BDUL7lS1AR',
+      fileId: '1mu7fDaLoZoijze3GYA-YfZr53JoHZB4zNo19iyHOA6k',
+      fields: 'id, parents'
+    }
     try {
       const auth = await getAuthToken();
       const response = await moveSpreadSheet({
         auth,
-        fileId,
-        folderId,
-        fields: 'id, parents'
+        moveRequest
+        
       })
       console.log('output for getSpreadSheetValues', JSON.stringify(response.data, null, 2));
       res.status(200).json({ moveSpreadSheet: response.data }) // Não sei onde ela ta sendo criada(pasta)

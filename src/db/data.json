@@ -1,0 +1,107 @@
+{
+  "cursos": [
+    {
+      "nome": "ADS"
+    },
+    {
+      "nome": "Biologia"
+    },
+    {
+      "nome": "Zootecnia"
+    },
+    {
+      "nome": "Formação Pedagógica"
+    },
+    {
+      "nome": "TAG"
+    },
+    {
+      "nome": "Gestão Ambiental"
+    },
+    {
+      "nome": "TME"
+    }
+  ],
+  "inscritos": [
+    {
+      "curso": "ADS",
+      "alunos": [
+        {
+          "nome": "Everton",
+          "matricula": 111111,
+          "curso": "ADS"
+        },
+        {
+          "nome": "Pedro",
+          "matricula": 222222,
+          "curso": "ADS"
+        }
+      ]
+    },
+    {
+      "curso": "Biologia",
+      "alunos": [
+        {
+          "nome": "Tiago",
+          "matricula": 3333333,
+          "curso": "Biologia"
+        },
+        {
+          "nome": "Ronaldinho",
+          "matricula": 666666,
+          "curso": "Biologia"
+        }
+      ]
+    },
+    {
+      "curso": "Zootecnia",
+      "alunos": [
+        {
+          "nome": "Fabricio",
+          "matricula": 444444,
+          "curso": "Zootecnia"
+        }
+      ]
+    },
+    {
+      "curso": "Formação Pedagógica",
+      "alunos": [
+        {
+          "nome": "Elias",
+          "matricula": 555555,
+          "curso": "Formação Pedagógica"
+        }
+      ]
+    },
+    {
+      "curso": "TAG",
+      "alunos": [
+        {
+          "nome": "Lebrom James",
+          "matricula": 777777,
+          "curso": "TAG"
+        }
+      ]
+    },
+    {
+      "curso": "Gestão Ambiental",
+      "alunos": [
+        {
+          "nome": "Messi",
+          "matricula": 888888,
+          "curso": "Gestão Ambiental"
+        }
+      ]
+    },
+    {
+      "curso": "TME",
+      "alunos": [
+        {
+          "nome": "Tom Brady",
+          "matricula": 999999,
+          "curso": "TME"
+        }
+      ]
+    }
+  ]
+}

@@ -52,12 +52,12 @@ async function copySpreadSheet({ auth, request }) {
 
 
 
-async function createSpreadSheet({ auth, requestCreate }) {
+async function createSpreadSheet({ auth, createRequest }) {
   const res = await sheets.spreadsheets.create({
     auth,
     resource: {
       properties: {
-        title: requestCreate.title
+        title: createRequest.title
       }
     }
   });
@@ -127,12 +127,22 @@ async function updateSpreadSheetValues({ auth, updateOptions }) {
 
 // GOOGLE DRIVE API
 
-async function moveSpreadSheet({ auth, fileId, folderId, fields}) {
+// async function moveSpreadSheet({ auth, fileId, folderId, fields}) {
+//   const res = await drive.files.update({
+//     auth,
+//     fileId,
+//     addParents: folderId,
+//     fields
+//   });
+//   return res
+// }
+
+async function moveSpreadSheet({ auth, moveRequest}) {
   const res = await drive.files.update({
     auth,
-    fileId,
-    addParents: folderId,
-    fields
+    fileId: moveRequest.fileId,
+    addParents: moveRequest.folderId,
+    fields: moveRequest.fildes
   });
   return res
 }

@@ -7,12 +7,12 @@ const alunos = [
   { nome: 'Everton', matricula: 111111, curso: 'ADS' },
   { nome: 'Pedro', matricula: 222222, curso: 'ADS' },
   { nome: 'Tiago', matricula: 3333333, curso: 'Biologia' },
-  { nome: 'Fabricio', matricula: 444444, curso: 'TME' }, // MUDE O NOME DO CURSO AQUI
+  { nome: 'Fabricio', matricula: 444444, curso: 'Zootecnia' }, // MUDE O NOME DO CURSO AQUI
   { nome: 'Elias', matricula: 555555, curso: 'Formação Pedagógica' }, // MUDE O NOME DO CURSO AQUI
   { nome: 'Ronaldinho', matricula: 666666, curso: 'Biologia' }, // MUDE O NOME DO CURSO AQUI
   { nome: 'Lebrom James', matricula: 777777, curso: 'TAG' }, // MUDE O NOME DO CURSO AQUI
   { nome: 'Messi', matricula: 888888, curso: 'Gestão Ambiental' }, // MUDE O NOME DO CURSO AQUI
-  { nome: 'Tom Brady', matricula: 999999, curso: 'ADS' }
+  { nome: 'Tom Brady', matricula: 999999, curso: 'TME' }
   // ADICIONE ALUNOS AQUI
 ]
 
@@ -98,6 +98,8 @@ function populaInscritosPorCurso(aluno) {
     for (const aluno of alunos) {
 
       let index = 0
+
+      // Pega index do curso cadastrado na tabela inscrito
       const foundAlunoCursoInInscritos = data.inscritos.find(function (inscrito, foundIndex) {
         if (aluno.curso == inscrito.curso) { 
           index = foundIndex
@@ -105,20 +107,10 @@ function populaInscritosPorCurso(aluno) {
         }
       })
 
-      if (!foundAlunoCursoInInscritos) {
-        // index = data.inscritos[length -1]
-        data.inscritos.push({ curso: aluno.curso, alunos: [] })
-        fs.writeFile("./src/db/data.json", JSON.stringify(data, null, 2), function (err) {
-          if (err) return res.send("Write file error!")
-        })
-        index = data.inscritos.length
-      }
-
-      console.log(index)
-    // Procura aluno no inscritos[index].alunos       
-      const foundAlunoInCursosInscritos = data.inscritos[index].alunos.find(function (alunoInscrito, foundIndex) {
+    // Procura aluno no index captura acima ( inscritos[index].alunos)    
+      const foundAlunoInCursosInscritos = data.inscritos[index].alunos.find(function (alunoInscrito) {
         if (aluno.nome == alunoInscrito.nome) { 
-          index2 = foundIndex
+          // index2 = foundIndex
           return true
         }
       })
@@ -129,10 +121,6 @@ function populaInscritosPorCurso(aluno) {
           if (err) return res.send("Write file error!")
         })
       }
-
-
-
-
     }
 
 
@@ -143,7 +131,7 @@ function populaInscritosPorCurso(aluno) {
 }
 
 function organizaDados(alunos) {
-  // populaCursos(alunos)
+  populaCursos(alunos)
   // for (let i = 0; i < alunos.length; i++) {
     // const alunoCurso = 
     populaInscritosPorCurso(alunos)
@@ -161,7 +149,7 @@ organizaDados(alunos)
 
 /*    PROBLEMAS    
 
-[] Se curso do aluno não tiver na tabela inscritos, adiciona esse aluno no primeiro curso da tabela inscritos ( index = 0)
+[]duplincando os alunos no inscritos/cursos - ESTA CADASTRANDO NO CURSO CORRETO
 
 
 */
