@@ -1,43 +1,14 @@
 const fs = require('fs')
 const data = require('./src/db/data.json')
-
-/*     ARRAYS     */
-
-const alunos = [
-  { nome: 'Everton', matricula: 111111, curso: 'ADS' },
-  { nome: 'Pedro', matricula: 222222, curso: 'ADS' },
-  { nome: 'Tiago', matricula: 3333333, curso: 'Biologia' },
-  { nome: 'Fabricio', matricula: 444444, curso: 'TME' }, // MUDE O NOME DO CURSO AQUI
-  { nome: 'Elias', matricula: 555555, curso: 'Formação Pedagógica' }, // MUDE O NOME DO CURSO AQUI
-  { nome: 'Ronaldinho', matricula: 666666, curso: 'Biologia' }, // MUDE O NOME DO CURSO AQUI
-  { nome: 'Lebrom James', matricula: 777777, curso: 'TAG' }, // MUDE O NOME DO CURSO AQUI
-  { nome: 'Messi', matricula: 888888, curso: 'Gestão Ambiental' }, // MUDE O NOME DO CURSO AQUI
-  { nome: 'Tom Brady', matricula: 999999, curso: 'ADS' }
-  // ADICIONE ALUNOS AQUI
-]
+const { alunos } = require('./src/db/alunos.json')
 
 /*     FUNÇÕES     */
-
-function verCursos(cursos) {
-  console.log('LISTA DE CURSOS')
-  for (let i = 0; i < cursos.length; i++) {
-    console.log(cursos[i])
-  }
-}
-
-
-function verInscritos(inscritos) {
-  console.log('LISTA DE INSCRITOS')
-  for (let i = 0; i < inscritos.length; i++) {
-    console.log(inscritos[i])
-  }
-}
-
-
 async function populaCursos(alunos) {
   try {
 
     // Percorre todos os alunos da tabela ALUNOS
+    // for(var i = 0; i < alunos.length; i++) {
+
     for (const aluno of alunos) {
 
       // Procura na tabela cursos se o curso do aluno já está cadastrdo
@@ -98,6 +69,8 @@ function populaInscritosPorCurso(aluno) {
     for (const aluno of alunos) {
 
       let index = 0
+
+      // Pega index do curso cadastrado na tabela inscrito
       const foundAlunoCursoInInscritos = data.inscritos.find(function (inscrito, foundIndex) {
         if (aluno.curso == inscrito.curso) { 
           index = foundIndex
@@ -105,20 +78,10 @@ function populaInscritosPorCurso(aluno) {
         }
       })
 
-      if (!foundAlunoCursoInInscritos) {
-        // index = data.inscritos[length -1]
-        data.inscritos.push({ curso: aluno.curso, alunos: [] })
-        fs.writeFile("./src/db/data.json", JSON.stringify(data, null, 2), function (err) {
-          if (err) return res.send("Write file error!")
-        })
-        index = data.inscritos.length
-      }
-
-      console.log(index)
-    // Procura aluno no inscritos[index].alunos       
-      const foundAlunoInCursosInscritos = data.inscritos[index].alunos.find(function (alunoInscrito, foundIndex) {
-        if (aluno.nome == alunoInscrito.nome) { 
-          index2 = foundIndex
+    // Procura aluno no index captura acima ( inscritos[index].alunos)    
+      const foundAlunoInCursosInscritos = data.inscritos[index].alunos.find(function (alunoInscrito) {
+        if (aluno.nome == alunoInscrito.nome && aluno.matricula == alunoInscrito.matricula && aluno.curso == alunoInscrito.curso) { 
+          // index2 = foundIndex
           return true
         }
       })
@@ -129,10 +92,6 @@ function populaInscritosPorCurso(aluno) {
           if (err) return res.send("Write file error!")
         })
       }
-
-
-
-
     }
 
 
@@ -142,16 +101,10 @@ function populaInscritosPorCurso(aluno) {
   }
 }
 
-function organizaDados(alunos) {
-  // populaCursos(alunos)
-  // for (let i = 0; i < alunos.length; i++) {
-    // const alunoCurso = 
-    populaInscritosPorCurso(alunos)
+async function organizaDados(alunos) {
+  await populaCursos(alunos)
+  await populaInscritosPorCurso(alunos)
   }
-  // verCursos(cursos)
-  // verInscritos(inscritos)
-
-
 
 
 /*     EXECUÇÃO     */
@@ -161,7 +114,7 @@ organizaDados(alunos)
 
 /*    PROBLEMAS    
 
-[] Se curso do aluno não tiver na tabela inscritos, adiciona esse aluno no primeiro curso da tabela inscritos ( index = 0)
+
 
 
 */
