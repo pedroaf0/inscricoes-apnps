@@ -1,13 +1,49 @@
 {
- "alunos": [
-        { "nome": "Everton", "matricula": 1111111, "curso": "ADS" },
-        { "nome": "Pedro", "matricula": 222222, "curso": "ADS" },
-        { "nome": "Tiago", "matricula": 3333333, "curso": "Biologia" },
-        { "nome": "Fabricio", "matricula": 444444, "curso": "Zootecnia" }, 
-        { "nome": "Elias", "matricula": 555555, "curso": "Formação Pedagógica" }, 
-        { "nome": "Ronaldinho", "matricula": 666666, "curso": "Biologia" }, 
-        { "nome": "Lebrom James", "matricula": 777777, "curso": "TAG" }, 
-        { "nome": "Messi", "matricula": 888888, "curso": "Gestão Ambiental" }, 
-        { "nome": "Tom Brady", "matricula": 999999, "curso": "TME" }
-      ]
+    "alunos": [
+        {
+            "nome": "Everton",
+            "matricula": 1111111,
+            "curso": "ADS"
+        },
+        {
+            "nome": "Pedro",
+            "matricula": 222222,
+            "curso": "ADS"
+        },
+        {
+            "nome": "Tiago",
+            "matricula": 3333333,
+            "curso": "Biologia"
+        },
+        {
+            "nome": "Fabricio",
+            "matricula": 444444,
+            "curso": "Zootecnia"
+        },
+        {
+            "nome": "Elias",
+            "matricula": 555555,
+            "curso": "Formação Pedagógica"
+        },
+        {
+            "nome": "Ronaldinho",
+            "matricula": 666666,
+            "curso": "Biologia"
+        },
+        {
+            "nome": "Lebrom James",
+            "matricula": 777777,
+            "curso": "TAG"
+        },
+        {
+            "nome": "Messi",
+            "matricula": 888888,
+            "curso": "Gestão Ambiental"
+        },
+        {
+            "nome": "Tom Brady",
+            "matricula": 999999,
+            "curso": "TME"
+        }
+    ]
 }

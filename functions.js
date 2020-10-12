@@ -7,8 +7,6 @@ async function populaCursos(alunos) {
   try {
 
     // Percorre todos os alunos da tabela ALUNOS
-    // for(var i = 0; i < alunos.length; i++) {
-
     for (const aluno of alunos) {
 
       // Procura na tabela cursos se o curso do aluno já está cadastrdo
@@ -36,9 +34,6 @@ async function populaCursos(alunos) {
   }
 }
 
-
-
-
 function populaInscritosPorCurso(aluno) {
   try {
 
@@ -65,22 +60,21 @@ function populaInscritosPorCurso(aluno) {
 
 
     // Percorre todos os alunos da tabela ALUNOS
-
     for (const aluno of alunos) {
 
       let index = 0
 
       // Pega index do curso cadastrado na tabela inscrito
       const foundAlunoCursoInInscritos = data.inscritos.find(function (inscrito, foundIndex) {
-        if (aluno.curso == inscrito.curso) { 
+        if (aluno.curso == inscrito.curso) {
           index = foundIndex
           return true
         }
       })
 
-    // Procura aluno no index captura acima ( inscritos[index].alunos)    
+      // Procura aluno no index captura acima ( inscritos[index].alunos)    
       const foundAlunoInCursosInscritos = data.inscritos[index].alunos.find(function (alunoInscrito) {
-        if (aluno.nome == alunoInscrito.nome && aluno.matricula == alunoInscrito.matricula && aluno.curso == alunoInscrito.curso) { 
+        if (aluno.nome == alunoInscrito.nome && aluno.matricula == alunoInscrito.matricula && aluno.curso == alunoInscrito.curso) {
           // index2 = foundIndex
           return true
         }
@@ -104,17 +98,8 @@ function populaInscritosPorCurso(aluno) {
 async function organizaDados(alunos) {
   await populaCursos(alunos)
   await populaInscritosPorCurso(alunos)
-  }
+}
 
 
 /*     EXECUÇÃO     */
 organizaDados(alunos)
-
-
-
-/*    PROBLEMAS    
-
-
-
-
-*/

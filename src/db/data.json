@@ -1,13 +1,13 @@
 {
   "cursos": [
     {
-      "nome": "ADS"
-    },
-    {
       "nome": "Biologia"
     },
     {
       "nome": "Zootecnia"
+    },
+    {
+      "nome": "ADS"
     },
     {
       "nome": "Formação Pedagógica"

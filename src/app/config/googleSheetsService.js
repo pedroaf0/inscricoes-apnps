@@ -15,7 +15,8 @@ async function getAuthToken() {
   const auth = new google.auth.GoogleAuth({
     scopes: SCOPES,
     // keyFile: './src/app/config/vault/subscription-for-1601063631396-4b84ce4e88f7.json',subscription-for-1601063631396-a5cd7a8f2a4d
-    keyFile: './src/app/config/vault/subscription-for-1601063631396-a5cd7a8f2a4d.json',
+    // keyFile: './src/app/config/vault/subscription-for-1601063631396-a5cd7a8f2a4d.json',
+    keyFile: './src/app/config/vault/subscription-for-1601063631396-ec292a864fe9.json',
   });
   const authToken = await auth.getClient();
   return authToken;

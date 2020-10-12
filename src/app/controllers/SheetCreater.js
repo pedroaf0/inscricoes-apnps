@@ -1,60 +1,32 @@
 const { getAuthToken, getSpreadSheetValues, createSpreadSheet, updateSpreadSheetValues, moveSpreadSheet, changePermissionsSpreadSheet } = require('../config/googleSheetsService');
 const { formatToObjetc, formatToArray } = require('../../lib/utils')
 const fs = require('fs')
-const data = require('../../db/data.json')
+const { cursos } = require('../../db/data.json')
+const { alunos } = require('../../db/alunos.json')
+const { coordenadores } = require('../../db/coordenadores.json')
+const planilhas = require('../../db/planilhas.json')
 
 
 const spreadsheetId = '122wEhEpmtkN8cSNzoj50OQdumZtvoPcOvgZd5wFxuF8' // planilha-1
 const sheetName = 'intro' // Da pra definir a planilha inteira: 'form1', ou um intervalo: 'form1!A:X'
 
-const alunos = [
-    { nome: 'Everton', matricula: 111111, curso: 'Biologia' },
-    { nome: 'Pedro', matricula: 222222, curso: 'ADS' },
-    { nome: 'Tiago', matricula: 3333333, curso: 'Agronomia' },
-    { nome: 'Fabricio', matricula: 444444, curso: 'Zootecnia' }, 
-    { nome: 'Elias', matricula: 555555, curso: 'Formação Pedagógica' },
-    { nome: 'Ronaldinho', matricula: 666666, curso: 'Biologia' }, 
-    { nome: 'Lebrom James', matricula: 777777, curso: 'TAG' }, 
-    { nome: 'Messi', matricula: 888888, curso: 'Gestão Ambiental' }, 
-]
 
-const cursos = [
-    // { nome: 'Biologia' },
-    { nome: 'ADS' },
-    // { nome: 'Agronomia' },
-    // { nome: 'Zootecnia' },
-    // { nome: 'Formação Pedagógica' },
-    // { nome: 'TAG' },
-    // { nome: 'Gestão Ambiental' },
-]
-
-const coordenadores = [
-    { nome: 'Tiago Ferreira', email: 'pavaneverton@gmail.com', curso: 'ADS' },
-    // { nome: 'Everton Pavan', email: 'everton.pavan.dev@gmail.com', curso: 'Biologia' }
-]
 
 module.exports = {
 
     async createSheetByCourse(req, res) {
 
-
-
-        // const courses = cursos //acho que não precisa
-
         try {
-
-            const criadas = []
 
             const createRequest = {
                 title: ''
-              }
+            }
+
+            const auth = await getAuthToken();
 
             for (let curso of cursos) {
 
                 createRequest.title = `${curso.nome} - Homologação`
-
-                const auth = await getAuthToken();
-
                 const createResponse = await createSpreadSheet({
                     auth,
                     createRequest
@@ -68,16 +40,14 @@ module.exports = {
                     folderId: '14KNHKofE-Ospjgk0-Pr1S8BDUL7lS1AR',
                     fileId: '',
                     fields: 'id, parents'
-                  }
-                  
+                }
+
                 moveRequest.fileId = idNewSpreadsheet
                 const moveResponse = await moveSpreadSheet({
                     auth,
                     moveRequest
                 })
-                console.log(`A planilha ${moveResponse.data.id} foi movida.`)
 
-                
                 // Dar permissões para os coordenadores de acordo com o curso
                 const permissionsRequest = {
                     fileId: '',
@@ -89,15 +59,10 @@ module.exports = {
                 permissionsRequest.fileId = idNewSpreadsheet
                 var coordenadorSelecionado
                 for (let coordenador of coordenadores) {
-                    console.log(coordenador.email)
-                    if (coordenador.curso == curso.nome ) {
-                        // console.log(coordenador.email)
+                    if (coordenador.curso == curso.nome) {
                         permissionsRequest.emailAddress = coordenador.email
-                        // console.log(coordenador)
-                        // console.log(coordenador.nome)
                         coordenadorSelecionado = coordenador.nome
                     }
-                   
                 }
 
                 const responseChange = await changePermissionsSpreadSheet({
@@ -105,28 +70,35 @@ module.exports = {
                     permissionsRequest
                 });
 
-                criadas.push({ nome: 
-                    `${createRequest.title}`, 
-                    coordenador: `${coordenadorSelecionado}` , 
-                    email: `${permissionsRequest.emailAddress}` , 
-                    id: idNewSpreadsheet, 
-                    url: urlNewSpreadsheet 
+                planilhas.planilhas.push({
+                    nome:
+                        `${createRequest.title}`,
+                    curso: `${curso.nome}`,
+                    coordenador: `${coordenadorSelecionado}`,
+                    email: `${permissionsRequest.emailAddress}`,
+                    id: idNewSpreadsheet,
+                    url: urlNewSpreadsheet
                 })
-
             }
+            // Grava no arquivo JSON os dados do criadas
+            fs.writeFile("./src/db/planilhas.json", JSON.stringify(planilhas, null, 2), function (err) {
+                if (err) return res.send("Write file error!")
 
-            console.log(criadas) //remover
-            res.status(200).json({ criadas }) 
-            // return criadas 
+            })
+
+            console.log(planilhas) //remover
+            res.status(200).json(planilhas)
+            return planilhas 
 
         } catch (error) {
             console.error(error); //remover
             res.status(200).json(error)
         }
-    },  
+    },
 }
 
 
 
 // mostrar msg qndo planilha não recebe coordenador
-// salvar arrays em arquivos JSON
+// ler JSON planilha pra ve se ela já foi criadas
+// se criar nova e deletar do json, remover do gdrive tbm

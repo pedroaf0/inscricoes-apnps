@@ -88,7 +88,11 @@ module.exports = {
 
   async testCreateSpreadSheet(req, res) {
     try {
+
+      for (let i = 0; i < 10; i++) {
       const auth = await getAuthToken();
+
+      
       const response = await createSpreadSheet({
         auth,
         createRequest
@@ -97,8 +101,12 @@ module.exports = {
       const idNewSpreadsheet = response.data.spreadsheetId
       const urlNewSpreadsheet = response.data.spreadsheetUrl
 
-      res.status(200).json({ urlNewSpreadsheet: urlNewSpreadsheet, idNewSpreadsheet: idNewSpreadsheet }) // Não sei onde ela ta sendo criada(pasta)
-      return idNewSpreadsheet
+      // res.status(200).json({ urlNewSpreadsheet: urlNewSpreadsheet, idNewSpreadsheet: idNewSpreadsheet }) // Não sei onde ela ta sendo criada(pasta)
+      // return idNewSpreadsheet
+    }
+    res.status(200).json({ urlNewSpreadsheet: urlNewSpreadsheet, idNewSpreadsheet: idNewSpreadsheet }) // Não sei onde ela ta sendo criada(pasta)
+     return idNewSpreadsheet
+    
     } catch (error) {
       console.log(error.message, error.stack);
     }
