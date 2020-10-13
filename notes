@@ -58,3 +58,9 @@ Como achar todos os arquivos/pastas criados por um usuario?
 [ ] CONGELAR CELULAS DE UMA PLANILHA
 [ ] FORMATAR CELULAS DE UMA PLANILHA (cores,alinhamento,..)
 [x] DIVIDIR PLANILHA POR CURSO E DAR PERMISSÃO APENAS PARA O COORDENADOR
+
+
+
+# API GOOGLE
+message: 'Rate limit exceeded. User message: "Sorry, you have exceeded your sharing quota."' 
+[] VER QUAL É COTA: 

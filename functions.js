@@ -9,7 +9,7 @@ async function populaCursos(alunos) {
     // Percorre todos os alunos da tabela ALUNOS
     for (const aluno of alunos) {
 
-      // Procura na tabela cursos se o curso do aluno já está cadastrdo
+      // Procura na tabela cursos se o curso do aluno já está cadastrado
       let index = 0
       const foundAlunoCursoInCurso = data.cursos.find(function (curso, foundIndex) {
         if (aluno.curso == curso.nome) {

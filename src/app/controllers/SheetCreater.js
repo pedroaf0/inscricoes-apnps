@@ -1,5 +1,4 @@
-const { getAuthToken, getSpreadSheetValues, createSpreadSheet, updateSpreadSheetValues, moveSpreadSheet, changePermissionsSpreadSheet } = require('../config/googleSheetsService');
-const { formatToObjetc, formatToArray } = require('../../lib/utils')
+const { getAuthToken, createSpreadSheet, moveSpreadSheet, changePermissionsSpreadSheet } = require('../config/googleSheetsService');
 const fs = require('fs')
 const { cursos } = require('../../db/data.json')
 const { alunos } = require('../../db/alunos.json')
@@ -58,7 +57,7 @@ module.exports = {
 
                 permissionsRequest.fileId = idNewSpreadsheet
                 var coordenadorSelecionado
-                for (let coordenador of coordenadores) {
+                for (let coordenador of coordenadores) {  // substituir por find
                     if (coordenador.curso == curso.nome) {
                         permissionsRequest.emailAddress = coordenador.email
                         coordenadorSelecionado = coordenador.nome
@@ -94,7 +93,7 @@ module.exports = {
             console.error(error); //remover
             res.status(200).json(error)
         }
-    },
+    }
 }
 
 
