@@ -12,7 +12,7 @@ https://voidcanvas.com/node-js-googleapis-v4-spreadsheet/
 
 [] LER DADOS DOS INSCRITOS
 [] ADICONAR COLUNA "Homologação" - Com opções de SIM/NÂO (Função Append)
-[] DIVIDIR DADOS POR CURSO E CRIAR NOVAS PLANILHAS
+[X] DIVIDIR DADOS POR CURSO E CRIAR NOVAS PLANILHAS
 [] LER DADOS DA PLANILHA DE HOMOLOGADOS
 [] EXPORTAR DADOS PARA O LDAP
 
@@ -20,21 +20,17 @@ https://voidcanvas.com/node-js-googleapis-v4-spreadsheet/
 
 ## TROUBLESHOOTING
 
-[] Solved: “The caller does not have permission” https://www.roelpeters.be/solved-the-caller-does-not-have-permission-using-the-api-with-a-private-google-spreadsheet/
+-> Solved: “The caller does not have permission” https://www.roelpeters.be/solved-the-caller-does-not-have-permission-using-the-api-with-a-private-google-spreadsheet/
 Compartilhar a planilha com o email da conta de serviço
 
 
+## FAZER
 
-## RASCUNHOS
-
-Talvez criar consts de ID de planilha de cada cursos
-Bloquear acesso a plans, liberar apenas para o coordenador do curso na aba
-
-
+[x] Bloquear acesso a plans, liberar apenas para o coordenador do curso na aba
 
 # CREATE
-Achar jeito de salvar dentro da pasta
-Já da permissão pra usuários
+[x] Achar jeito de salvar dentro da pasta
+[x] Já da permissão pra usuários]
 
 # TOP
 https://medium.com/@bretcameron/how-to-use-the-google-drive-api-with-javascript-57a6cc9e5262
@@ -57,6 +53,7 @@ Como achar todos os arquivos/pastas criados por um usuario?
 [x] ADICIONAR INFORMAÇÕES EM UMA PLANILHA
 [ ] CONGELAR CELULAS DE UMA PLANILHA
 [ ] FORMATAR CELULAS DE UMA PLANILHA (cores,alinhamento,..)
+[ ] PERMITIR APENAS OPÇÕES: SIM/NÃO na coluna HOMOLOGAÇÃO
 [x] DIVIDIR PLANILHA POR CURSO E DAR PERMISSÃO APENAS PARA O COORDENADOR
 
 

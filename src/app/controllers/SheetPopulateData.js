@@ -1,8 +1,5 @@
 const { getAuthToken, appendSpreadSheetValues } = require('../config/googleSheetsService');
-// const fs = require('fs')
-// const { alunos } = require('../../db/alunos.json')
 const data = require('../../db/data.json')
-// const { inscritos } = require('../../db/data.json')
 const { planilhas } = require('../../db/planilhas.json')
 
 
@@ -12,7 +9,6 @@ module.exports = {
 
         try {
 
-            const arrayAlunos = []
             let response = ''
 
             for (const planilha of planilhas) {
@@ -25,20 +21,30 @@ module.exports = {
                 })
 
                 const arrayAlunos = []
+
+                const headers = Object.keys(foundCoursePlanilhasInInscritos.alunos[0])
+                headers.push('HOMOLOGAÇÃO') 
+                arrayAlunos.push(headers)
+               
+
+                
                 for (i = 0; i < foundCoursePlanilhasInInscritos.alunos.length; i++) {
                     const valores = Object.values(foundCoursePlanilhasInInscritos.alunos[i])
                     arrayAlunos.push(valores)
                 }
+
+                
 
                 const appendOptions = {
                     spreadsheetId: planilha.id,
                     range: 'Sheet1',
                     valueInputOption: 'USER_ENTERED',
                     insertDataOption: 'OVERWRITE',
-                    resource: {
+                    resource:
+                    {
                         majorDimension: 'ROWS',
                         values: arrayAlunos
-                    }
+                    },
                 }
 
                 const auth = await getAuthToken();
@@ -63,3 +69,9 @@ module.exports = {
     }
 
 }
+
+
+// Verificar se dados já existem na planilha
+// getspreadsheet.values
+// comparar com array Alunos
+// 

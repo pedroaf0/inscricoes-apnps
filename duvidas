@@ -1,6 +1,8 @@
-Pessoal, tenho um array:
+Pessoal, tenho voltando aquela questão do array:
 
-inscritos: [
+Array de resposta da API Sheet:
+
+[
     [   
      Nome
      Matricula
@@ -20,7 +22,7 @@ inscritos: [
 
 Como obter a saída em JSON, conforme abaixo:
 
-inscritos: [
+[
     {
      Nome: Everton,
      Matricual: 102030,
@@ -32,6 +34,6 @@ inscritos: [
      pavan@gmail.com
     }
 }
-]
+
 
 Seria transforma um array em um array de objeto com o primeiro array sendo os atributos do novo array
