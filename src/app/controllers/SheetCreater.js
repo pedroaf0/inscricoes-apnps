@@ -25,7 +25,7 @@ module.exports = {
 
             for (let curso of cursos) {
 
-                createRequest.title = `${curso.nome} - Homologação`
+                createRequest.title = `${curso.nome} - Homologação APNPs Dezembro/2020`
 
                 // Procura na planilhas.json se a planilha já inserida no json
                 const foundPlanilhaInPlanilha = planilhas.planilhas.find(function (planilha) {
@@ -117,7 +117,9 @@ module.exports = {
 
 [ ] mostrar msg qndo planilha não recebe coordenador
 [X] ler JSON planilha pra ve se ela já foi criadas 
-[ ] se criar nova e deletar do json, remover do gdrive tbm
+[ ] se criar nova e deletar do json, 
+[ ] remover do gdrive tbm (listar files e deletar)
+
 
 
 

@@ -1,4 +1,4 @@
-const { getAuthToken, getSpreadSheet, getSpreadSheetValues, createSpreadSheet, copySpreadSheet, appendSpreadSheetValues, updateSpreadSheetValues, moveSpreadSheet, changePermissionsSpreadSheet } = require('../config/googleSheetsService');
+const { getAuthToken, getSpreadSheet, getSpreadSheetValues, createSpreadSheet, copySpreadSheet, appendSpreadSheetValues, updateSpreadSheetValues, moveSpreadSheet, changePermissionsSpreadSheet, listDriveFiles, deleteDriveFiles, emptyTrashDriveFiles} = require('../config/googleSheetsService');
 const { formatToObjetc, formatToArray } = require('../../lib/utils')
 // const spreadsheetId = '1tMXZvenMCGtcG3hRb_LcFcHAtfYgUs-xd5nw3YjWN-8'
 // const sheetName = 'integrado' // Da pra definir a planilha inteira: 'form1', ou um intervalo: 'form1!A:X'
@@ -236,7 +236,91 @@ module.exports = {
     }
   },
 
+  // https://developers.google.com/drive/api/v2/search-files
+  async testListDriveFiles(req, res) {
+    const listRequest = {
+      corpora: 'user',
+      driveId: '14KNHKofE-Ospjgk0-Pr1S8BDUL7lS1AR',
+      includeItemsFromAllDrives: true,
+      supportsAllDrives: true,
+      q: "'me' in owners and (mimeType contains 'spreadsheet')" // title contains 'Homologação APNPs Dezembro/2020'
+
+    }
+    try {
+      const auth = await getAuthToken();
+      const response = await listDriveFiles({
+        auth,
+        listRequest
+        
+      })
+      // console.log('output for listDriveFiles:', JSON.stringify(response.data.files, null, 2));
+
+      // utilizar quando quiser deletar todos os arquivos do usuario
+      // const files = response.data.files
+
+      // for (i = 0; i < files.length; i++) {
+
+      //   console.log(files[i].id)
+
+      //   const deleteRequest = {
+      //     fileId: files[i].id
+      //   }
+
+      //   const response = await deleteDriveFiles({
+      //           auth,
+      //           deleteRequest
+      //   })
+      // }
+      
+      
+      
+
+      res.status(200).json({ listDriveFiles: response.data.files }) 
+    } catch (error) {
+      console.log(error.message, error.stack);
+    }
+  },
+
+  async testDeleteDriveFiles(req, res) {
+    const deleteRequest = {
+      fileId: '1JMtQqVX_5F5VWAabLelOGr-0sb7MJPUUcE_h6FhrEVY',
+      // enforceSingleParent: true
+    }
+    try {
+      const auth = await getAuthToken();
+      const response = await deleteDriveFiles({
+        auth,
+        deleteRequest
+      })
+      console.log('output for deleteDriveFiles:', JSON.stringify(response, null, 2));
+      res.status(200).json({ deleteDriveFiles: response }) 
+    } catch (error) {
+      console.log(error.message, error.stack);
+    }
+  },
+
+  async testEmptyTrashDriveFiles(req, res) {
+    try {
+      const auth = await getAuthToken();
+      const response = await emptyTrashDriveFiles({
+        auth,
+      })
+      console.log('output for emptyTrashDriveFiles:', JSON.stringify(response.data, null, 2));
+      res.status(200).json({ deleteDriveFiles: response.data }) 
+    } catch (error) {
+      console.log(error.message, error.stack);
+    }
+  },
 
 
 
 } //end module.exports
+
+
+/*
+[ ] Criar lista de todos os (ids dos) files na pasta
+[ ] Se tiver na pasta ( com o nome curso -homologação - dez 2020 ) e não tiver na planilha - excluir!
+[ ] 
+
+
+*/

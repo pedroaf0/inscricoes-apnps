@@ -15,8 +15,8 @@ async function getAuthToken() {
   const auth = new google.auth.GoogleAuth({
     scopes: SCOPES,
     // keyFile: './src/app/config/vault/subscription-for-1601063631396-4b84ce4e88f7.json',subscription-for-1601063631396-a5cd7a8f2a4d
-    // keyFile: './src/app/config/vault/subscription-for-1601063631396-a5cd7a8f2a4d.json',
-    keyFile: './src/app/config/vault/subscription-for-1601063631396-ec292a864fe9.json',
+    keyFile: './src/app/config/vault/subscription-for-1601063631396-a5cd7a8f2a4d.json',
+    // keyFile: './src/app/config/vault/subscription-for-1601063631396-ec292a864fe9.json',
   });
   const authToken = await auth.getClient();
   return authToken;
@@ -143,23 +143,51 @@ async function moveSpreadSheet({ auth, moveRequest}) {
     auth,
     fileId: moveRequest.fileId,
     addParents: moveRequest.folderId,
-    fields: moveRequest.fildes
+    fields: moveRequest.fields
   });
   return res
 }
 
-async function changePermissionsSpreadSheet({ auth, permissionsRequest}) {
+async function changePermissionsSpreadSheet({ auth, permissionsRequest }) {
   const res = await drive.permissions.create({
-  auth,
-  fileId: permissionsRequest.fileId,
-  // transferOwnership: 'true',
-  resource: {
-    role: permissionsRequest.role,
-    type: permissionsRequest.type,
-    emailAddress: permissionsRequest.emailAddress
-  }
-});
-return res
+    auth,
+    fileId: permissionsRequest.fileId,
+    // transferOwnership: 'true',
+    resource: {
+      role: permissionsRequest.role,
+      type: permissionsRequest.type,
+      emailAddress: permissionsRequest.emailAddress
+    }
+  });
+  return res
+}
+
+async function listDriveFiles({ auth, listRequest}) {
+  const res = await drive.files.list({
+    auth,
+    corpora: listRequest.corpora,
+    driveId: listRequest.fileId,
+    includeItemsFromAllDrives: listRequest.includeItemsFromAllDrives,
+    supportsAllDrives: listRequest.supportsAllDrives,
+    q: listRequest.q
+  });
+  return res
+}
+
+async function deleteDriveFiles({ auth, deleteRequest}) {
+  const res = await drive.files.delete({
+    auth,
+    fileId: deleteRequest.fileId,
+    enforceSingleParent: deleteRequest.enforceSingleParent 
+  });
+  return res
+}
+
+async function emptyTrashDriveFiles({ auth }) {
+  const res = await drive.files.emptyTrash({
+    auth,
+  });
+  return res
 }
 
 
@@ -172,5 +200,8 @@ module.exports = {
   appendSpreadSheetValues,
   updateSpreadSheetValues,
   moveSpreadSheet,
-  changePermissionsSpreadSheet
+  changePermissionsSpreadSheet,
+  listDriveFiles,
+  deleteDriveFiles,
+  emptyTrashDriveFiles
 }
