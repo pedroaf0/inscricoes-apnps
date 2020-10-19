@@ -128,16 +128,6 @@ async function updateSpreadSheetValues({ auth, updateOptions }) {
 
 // GOOGLE DRIVE API
 
-// async function moveSpreadSheet({ auth, fileId, folderId, fields}) {
-//   const res = await drive.files.update({
-//     auth,
-//     fileId,
-//     addParents: folderId,
-//     fields
-//   });
-//   return res
-// }
-
 async function moveSpreadSheet({ auth, moveRequest}) {
   const res = await drive.files.update({
     auth,

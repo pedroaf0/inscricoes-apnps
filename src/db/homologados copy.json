@@ -1,0 +1,102 @@
+{
+    "inscritos": [
+        {
+            "curso": "ADS",
+            "homologados": [
+                {
+                    "nome": "Everton",
+                    "matricula": 1111111,
+                    "curso": "ADS",
+                    "HOMOLOGAÇÃO": "Sim"
+                }
+            ],
+            "não-homologados": [
+                {
+                    "nome": "Pedro",
+                    "matricula": 222222,
+                    "curso": "ADS",
+                    "HOMOLOGAÇÃO": "Não"
+                }
+            ]
+        },
+        {
+            "curso": "Biologia",
+            "homologados": [
+                {
+                    "nome": "Tiago",
+                    "matricula": 3333333,
+                    "curso": "Biologia",
+                    "HOMOLOGAÇÃO": "Sim"
+                }
+            ],
+            "não-homologados": [
+                {
+                    "nome": "Ronaldinho",
+                    "matricula": 666666,
+                    "curso": "Biologia",
+                    "HOMOLOGAÇÃO": "Não"
+                }
+            ]
+        },
+        {
+            "curso": "Zootecnia",
+            "homologados": [
+                {
+                    "nome": "Fabricio",
+                    "matricula": 444444,
+                    "curso": "Zootecnia",
+                    "HOMOLOGAÇÃO": "Sim"
+                }
+            ],
+            "não-homologados": []
+        },
+        {
+            "curso": "Formação Pedagógica",
+            "homologados": [
+                {
+                    "nome": "Elias",
+                    "matricula": 555555,
+                    "curso": "Formação Pedagógica",
+                    "HOMOLOGAÇÃO": "Sim"
+                }
+            ],
+            "não-homologados": []
+        },
+        {
+            "curso": "TAG",
+            "homologados": [
+                {
+                    "nome": "Lebrom James",
+                    "matricula": 777777,
+                    "curso": "TAG",
+                    "HOMOLOGAÇÃO": "Sim"
+                }
+            ],
+            "não-homologados": []
+        },
+        {
+            "curso": "Gestão Ambiental",
+            "homologados": [
+                {
+                    "nome": "Messi",
+                    "matricula": 888888,
+                    "curso": "Gestão Ambiental",
+                    "HOMOLOGAÇÃO": "Sim"
+                }
+            ],
+            "não-homologados": []
+        },
+        {
+            "curso": "TME",
+            "homologados": [],
+            "não-homologados": [
+                {
+                    "nome": "Tom Brady",
+                    "matricula": 999999,
+                    "curso": "TME",
+                    "HOMOLOGAÇÃO": "Não"
+                }
+            ]
+        }
+    ]
+}

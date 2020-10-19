@@ -144,37 +144,51 @@ module.exports = {
   async testUpdateSpreadSheetValues(req, res) {
     try {
 
+      // const updateOptions = {
+      //   spreadsheetId: '1lSH4xIX754ilk1Kqo_0iUZVgvmPvYWjl8DsJOa_zpkY',
+      //     valueInputOption: 'USER_ENTERED',
+      //     requests: [{
+      //       updateCells: {
+      //       range: 
+      //         {
+      //           sheetId: 0,
+      //           startRowIndex: 6,
+      //           endRowIndex: 10,
+      //           startColumnIndex: 0,
+      //           endColumnIndex: 12,
+      //         },
+      //         rows: [{
+      //           values: [
+      //             {
+      //               userEnteredFormat: {
+      //                 backgroundColor: {
+      //                   red: 75,
+      //                   green: 63,
+      //                   blue: 25
+      //                 }
+      //               }
+      //             }
+      //           ]
+      //         }],
+      //            fields: 'userEnteredValue'
+      //       }    
+      //       } ]           
+      // }
+
+
       const updateOptions = {
         spreadsheetId: '1lSH4xIX754ilk1Kqo_0iUZVgvmPvYWjl8DsJOa_zpkY',
-          valueInputOption: 'USER_ENTERED',
-          requests: [{
-            updateCells: {
-            range: 
-              {
-                sheetId: 0,
-                startRowIndex: 6,
-                endRowIndex: 10,
-                startColumnIndex: 9,
-                endColumnIndex: 12,
-              },
-              rows: [{
-                values: [
-                  {
-                    userEnteredFormat: {
-                      backgroundColor: {
-                        red: 75,
-                        green: 63,
-                        blue: 25
-                      }
-                    }
-                  }
-                ]
-              }],
-                 fields: 'userEnteredValue'
-            }    
-            } ]           
+        valueInputOption: 'USER_ENTERED',
+        sheetId: 0,
+        startRowIndex: 6,
+        endRowIndex: 10,
+        startColumnIndex: 0,
+        endColumnIndex: 12,
+        red: 23232,
+        green: 223,
+        blue: 2321,
+        fields: 'userEnteredValue'
       }
-
 
       
       const auth = await getAuthToken();
