@@ -10,12 +10,12 @@
                     "HOMOLOGAÇÃO": "Sim"
                 }
             ],
-            "naohomologados": [
+            "não-homologados": [
                 {
                     "nome": "Pedro",
                     "matricula": 222222,
                     "curso": "ADS",
-                    "HOMOLOGAÇÃO": "nao"
+                    "HOMOLOGAÇÃO": "Não"
                 }
             ]
         },
@@ -29,12 +29,12 @@
                     "HOMOLOGAÇÃO": "Sim"
                 }
             ],
-            "naohomologados": [
+            "não-homologados": [
                 {
                     "nome": "Ronaldinho",
                     "matricula": 666666,
                     "curso": "Biologia",
-                    "HOMOLOGAÇÃO": "nao"
+                    "HOMOLOGAÇÃO": "Não"
                 }
             ]
         },
@@ -48,7 +48,7 @@
                     "HOMOLOGAÇÃO": "Sim"
                 }
             ],
-            "naohomologados": []
+            "não-homologados": []
         },
         {
             "curso": "Formação Pedagógica",
@@ -60,7 +60,7 @@
                     "HOMOLOGAÇÃO": "Sim"
                 }
             ],
-            "naohomologados": []
+            "não-homologados": []
         },
         {
             "curso": "TAG",
@@ -72,7 +72,7 @@
                     "HOMOLOGAÇÃO": "Sim"
                 }
             ],
-            "naohomologados": []
+            "não-homologados": []
         },
         {
             "curso": "Gestão Ambiental",
@@ -84,17 +84,17 @@
                     "HOMOLOGAÇÃO": "Sim"
                 }
             ],
-            "naohomologadoss": []
+            "não-homologados": []
         },
         {
             "curso": "TME",
             "homologados": [],
-            "naohomologados": [
+            "não-homologados": [
                 {
                     "nome": "Tom Brady",
                     "matricula": 999999,
                     "curso": "TME",
-                    "HOMOLOGAÇÃO": "Nao"
+                    "HOMOLOGAÇÃO": "Não"
                 }
             ]
         }

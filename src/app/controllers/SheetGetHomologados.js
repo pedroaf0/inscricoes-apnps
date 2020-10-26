@@ -36,6 +36,17 @@ module.exports = {
 
                 // procura no JSON homolados se já tem o curso
                 // usaro o planilha.curso == homologados.curso
+                const index = 0
+                const foundCourseInHomologados = homologados.inscritos.find(function (inscritos, foundIndex) {
+                    if (planilha.curso == inscritos.curso) {
+                        index = foundIndex
+                        return true
+                    }
+                })
+
+
+
+
                 // ve se inscrito foi homologado (ou não)
                 // salva no array correto
 

@@ -26,7 +26,7 @@ module.exports = {
                 listRequest
             })
 
-            console.log('output for listDriveFiles:', JSON.stringify(response.data.files, null, 2));
+            // console.log('output for listDriveFiles:', JSON.stringify(response.data.files, null, 2));
 
             const files = response.data.files
 
@@ -38,7 +38,7 @@ module.exports = {
 
                 const foundPlanilhaInPlanilha = planilhas.planilhas.find(function (planilha) {
                     if (fileSpreadsheetId == planilha.id) {
-                        console.log(files[i].id)
+                        // console.log(files[i].id)
                         return true
                     }
                 })
@@ -57,6 +57,8 @@ module.exports = {
                 }
             }
 
+            
+
 
             const data = { planilhas: [] }     
 
@@ -72,12 +74,13 @@ module.exports = {
             res.status(200).json(error)
         }
 
-        console.log('Todas as planilhas foram excluídas!') //remover
+        // console.log('Todas as planilhas foram excluídas!') //remover
         res.status(200).json('Todas as planilhas foram excluídas!')
 
     }
 }
 
 // excluir todas as sheets da pasta do drive
+// pq serviço ta reiniciando qual deleta todas as planilhas?
 
 

@@ -63,3 +63,7 @@ Como achar todos os arquivos/pastas criados por um usuario?
 # API GOOGLE
 message: 'Rate limit exceeded. User message: "Sorry, you have exceeded your sharing quota."' 
 [] VER QUAL É COTA: 
+
+
+# PLANILHAS GOOGLE
+As colunas não podem ter nome com o simbolo º 
