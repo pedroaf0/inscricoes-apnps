@@ -1,8 +1,8 @@
 module.exports = {
 
-    async formatToObjetc(inscritos) {
+    async formatToObjetc(alunos) {
 
-        const data  = inscritos
+        const data  = alunos
         var collection = data.slice(); // make a copy
         var keys = collection.shift();
 
