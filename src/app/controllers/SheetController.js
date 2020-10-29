@@ -6,7 +6,8 @@ const cursos = require('../../db/cursos.json')
 const inscritosPorCurso = require('../../db/inscritosPorCurso.json')
 const coordenadores = require('../../db/coordenadores.json')
 const planilhas = require('../../db/planilhas.json')
-const disciplinas = require('../../db/disciplinas.json')
+const disciplinas = require('../../db/disciplinas.json');
+const { addListener } = require('process');
 
 
 
@@ -40,6 +41,7 @@ module.exports = {
       inscritos = await addColumnDisciplines(inscritos)
 
 
+
       // Grava no arquivo JSON os dados dos inscritos
       fs.writeFile("./src/db/inscritos.json", JSON.stringify(inscritos, null, 2), function (err) {
       if (err) return res.send("Write file error!")
@@ -58,20 +60,21 @@ module.exports = {
 
 
     // Percorre todos os alunos da tabela INSCRITOS
-    for (const inscrito of inscritos) {
+    const alunos = inscritos
+    for (const aluno of alunos) {
 
       // Procura na tabela cursos se o curso do inscrito já está cadastrado
       let index = 0
       const foundInscritoCursoInCurso = cursos.cursos.find(function (curso, foundIndex) {
-        if (inscrito.curso == curso.nome) {
+        if (aluno.curso == curso.nome) {
           index = foundIndex
           return true
         }
       })
 
       if (!foundInscritoCursoInCurso) {
-        console.log(inscrito.curso)
-        cursos.cursos.push({ nome: inscrito.curso })
+        console.log(aluno.curso)
+        cursos.cursos.push({ nome: aluno.curso })
       }
 
     }
@@ -106,6 +109,7 @@ async getEnrollersByCourse(req, res) {
       const foundCursoInInscritosPorCurso = inscritosPorCurso.inscritos.find(function (inscrito, foundIndex) {
         if (course.nome == inscrito.curso) {
           index = foundIndex;
+          console.log(`Curso já cadastrado!`)
           return true;
         }
       })
@@ -134,8 +138,7 @@ async getEnrollersByCourse(req, res) {
 
       // Procura inscrito no index capturado acima ( inscritos[index].inscritos)    //Pode dar erro aqui caso os nomes da colunas da planilha não correspondam aos atributos abaixo
       const foundInscritoInCursosInscritos = inscritosPorCurso.inscritos[index].inscritos.find(function (inscrito) {
-        if (aluno.nome == inscrito.nome && aluno.matricula == inscrito.matricula && aluno.curso == inscrito.curso) {
-          // index2 = foundIndex
+        if (aluno.Nome_completo == inscrito.Nome_completo && aluno.Número_de_matrícula == inscrito.Número_de_matrícula && aluno.curso == inscrito.curso) {
           return true;
         }
       })
@@ -187,7 +190,6 @@ async getDisciplinesByCourse(req, res) {
       }
     }
 
-
     const alunos = inscritos
 
     // Percorre todos os alunos da tabela INSCRITOS
@@ -203,29 +205,18 @@ async getDisciplinesByCourse(req, res) {
         }
       })
 
-
-
-
-
-      // for (let i = 0; i <= aluno.disciplinas.length - 1; i++) {
-      //   console.log(aluno.disciplinas[i])
-      // }
-
-
       // Procura disciplina no index capturado acima ( disciplinas[index].disciplinas)    //Pode dar erro aqui caso os nomes da colunas da planilha não correspondam aos atributos abaixo
-      // const foundEnrollerDisciplinesInDisciplines = disciplinas.disciplinas[index].disciplinas.find(function (disciplina) {
+      const foundEnrollerDisciplinesInDisciplines = disciplinas.disciplinas[index].disciplinas.find(function (disciplina) {
+        return true
+      })
 
-      // })
+      if (!foundEnrollerDisciplinesInDisciplines) {
+        disciplinas.disciplinas[index].disciplinas.push(aluno.disciplinas)
+        fs.writeFile("./src/db/inscritosPorCurso.json", JSON.stringify(inscritosPorCurso, null, 2), function (err) {
+          if (err) return res.send("Write file error!")
+        })
 
-
-
-      // if (!foundEnrollerDisciplinesInDisciplines) {
-      //   disciplinas.disciplinas[index].disciplinas.push(aluno.disciplinas)
-      //   // fs.writeFile("./src/db/inscritosPorCurso.json", JSON.stringify(inscritosPorCurso, null, 2), function (err) {
-      //   //   if (err) return res.send("Write file error!")
-      //   // })
-
-      // }
+      }
 
     }
 

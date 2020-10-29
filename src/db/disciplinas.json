@@ -5,11 +5,19 @@
       "disciplinas": []
     },
     {
-      "curso": "AGRONOMIA",
+      "curso": "Curso Superior de Tecnologia em Agronegócio",
+      "disciplinas": []
+    },
+    {
+      "curso": "Técnico em Comércio Integrado ao ensino médio na modalidade PROEJA",
       "disciplinas": []
     },
     {
       "curso": "Técnico em Agropecuária - Subsequente ao ensino médio",
+      "disciplinas": []
+    },
+    {
+      "curso": "Licenciatura em Ciências Agrícolas",
       "disciplinas": []
     }
   ]

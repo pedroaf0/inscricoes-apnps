@@ -84,11 +84,19 @@ module.exports = {
 
                 let filtroAPNPs = key.includes('APNPs')
                 if (filtroAPNPs) {
-                    APNPs.push(value)
-                    console.log(APNPs)
+
+                    let filtroValor = value.includes(',')
+                    if (filtroValor) {
+                        value = value.split(',')
+                        for (let i = 0; i <= value.length - 1; i++) {
+                            value[i] = value[i].trim()
+                            APNPs.push(value[i])
+                        } 
+                    }else {
+                        APNPs.push(value)
+                    }
                 }
 
-                //talvez precisar jogar como objeto = no momento é um array
                 inscrito.disciplinas = APNPs
 
             }

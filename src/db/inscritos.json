@@ -54,7 +54,9 @@
     "Turma_(Proeja)": "2019",
     "APNPs_-_COM_-_Turma_2019": "Biologia, Fundamentos de Contabilidade aplicados ao comércio e serviços, Projeto Integrador II",
     "disciplinas": [
-      "Biologia, Fundamentos de Contabilidade aplicados ao comércio e serviços, Projeto Integrador II"
+      "Biologia",
+      "Fundamentos de Contabilidade aplicados ao comércio e serviços",
+      "Projeto Integrador II"
     ]
   },
   {
@@ -70,7 +72,9 @@
     "Modalidade_do_seu_curso": "Técnico Subsequente ao Ensino Médio",
     "APNPs_-_1_Semestre_-_Subsequente": "Manejo de solos e água (MSA003), Culturas Anuais I (CAN006), Propagação de Plantas (PRP002)",
     "disciplinas": [
-      "Manejo de solos e água (MSA003), Culturas Anuais I (CAN006), Propagação de Plantas (PRP002)"
+      "Manejo de solos e água (MSA003)",
+      "Culturas Anuais I (CAN006)",
+      "Propagação de Plantas (PRP002)"
     ]
   },
   {
@@ -109,7 +113,12 @@
     "Modalidade_do_seu_curso": "Técnico Subsequente ao Ensino Médio",
     "APNPs_-_1_Semestre_-_Subsequente": "Associativismo (ASS002), Meio Ambiente (MEA002), Bioclimatologia (BCL002), Piscicultura (PIS004), Nutrição Animal (NAN002), Propagação de Plantas (PRP002)",
     "disciplinas": [
-      "Associativismo (ASS002), Meio Ambiente (MEA002), Bioclimatologia (BCL002), Piscicultura (PIS004), Nutrição Animal (NAN002), Propagação de Plantas (PRP002)"
+      "Associativismo (ASS002)",
+      "Meio Ambiente (MEA002)",
+      "Bioclimatologia (BCL002)",
+      "Piscicultura (PIS004)",
+      "Nutrição Animal (NAN002)",
+      "Propagação de Plantas (PRP002)"
     ]
   },
   {
@@ -125,7 +134,51 @@
     "Modalidade_do_seu_curso": "Técnico Subsequente ao Ensino Médio",
     "APNPs_-_1_Semestre_-_Subsequente": "Paisagismo (PAI002), Culturas Anuais I (CAN006), Climatologia Agrícola (CAG002), Bioclimatologia (BCL002), Nutrição Animal (NAN002), Propagação de Plantas (PRP002)",
     "disciplinas": [
-      "Paisagismo (PAI002), Culturas Anuais I (CAN006), Climatologia Agrícola (CAG002), Bioclimatologia (BCL002), Nutrição Animal (NAN002), Propagação de Plantas (PRP002)"
+      "Paisagismo (PAI002)",
+      "Culturas Anuais I (CAN006)",
+      "Climatologia Agrícola (CAG002)",
+      "Bioclimatologia (BCL002)",
+      "Nutrição Animal (NAN002)",
+      "Propagação de Plantas (PRP002)"
+    ]
+  },
+  {
+    "": "De acordo.",
+    "CPF": "61615616",
+    "curso": "Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas",
+    "Carimbo_de_data/hora": "27/10/2020 12:34:14",
+    "Endereço_de_e-mail": "everton.pavan@sertao.ifrs.edu.br",
+    "Nome_completo": "Renato Gaúcho",
+    "Telefone_para_contato": "161651616",
+    "E-mail_para_contato": "everton.pavan@sertao.ifrs.edu.br",
+    "Número_de_matrícula": "841815121",
+    "Modalidade_do_seu_curso": "Graduação (Bacharelados, Licenciaturas e  Cursos Superiores de Tecnologia)",
+    "APNPs_ADS_1_Semestre": "Matemática Aplicada à Computação (MAC001)",
+    "APNPs__-_ADS_-_3_Semestre": "Engenharia de Software (ENS001)",
+    "APNPs__-_ADS_-_5_Semestre": "Gerência de Projetos (GPR001)",
+    "Você_estava_matriculado_(a)_em_alguma(s)_disciplina(s)_de_outro(s)_curso(s)_antes_da_suspensão_do_calendário_acadêmico_em_16/03/2020?": "Não",
+    "disciplinas": [
+      "Matemática Aplicada à Computação (MAC001)",
+      "Engenharia de Software (ENS001)",
+      "Gerência de Projetos (GPR001)"
+    ]
+  },
+  {
+    "": "De acordo.",
+    "CPF": "777777777777",
+    "curso": "Técnico em Agropecuária - Subsequente ao ensino médio",
+    "Carimbo_de_data/hora": "28/10/2020 13:24:53",
+    "Endereço_de_e-mail": "pavaneverton@gmail.com",
+    "Nome_completo": "Luan",
+    "Telefone_para_contato": "77777777",
+    "E-mail_para_contato": "pavaneverton@gmail.com",
+    "Número_de_matrícula": "111111111111111",
+    "Modalidade_do_seu_curso": "Técnico Subsequente ao Ensino Médio",
+    "APNPs_-_1_Semestre_-_Subsequente": "Manejo de solos e água (MSA003), Culturas Anuais I (CAN006), Propagação de Plantas (PRP002)",
+    "disciplinas": [
+      "Manejo de solos e água (MSA003)",
+      "Culturas Anuais I (CAN006)",
+      "Propagação de Plantas (PRP002)"
     ]
   }
 ]

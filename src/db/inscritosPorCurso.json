@@ -4,6 +4,9 @@
       "curso": "Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas",
       "inscritos": [
         {
+          "": "De acordo.",
+          "CPF": "01732754004",
+          "curso": "Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas",
           "Carimbo_de_data/hora": "27/10/2020 12:34:14",
           "Endereço_de_e-mail": "everton.pavan@sertao.ifrs.edu.br",
           "Nome_completo": "Everton Pavan",
@@ -11,32 +14,85 @@
           "E-mail_para_contato": "everton.pavan@sertao.ifrs.edu.br",
           "Número_de_matrícula": "1647383",
           "Modalidade_do_seu_curso": "Graduação (Bacharelados, Licenciaturas e  Cursos Superiores de Tecnologia)",
-          "curso": "Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas",
-          "Curso_(Graduação)": "Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas",
           "APNPs_ADS_1_Semestre": "Matemática Aplicada à Computação (MAC001)",
           "APNPs__-_ADS_-_3_Semestre": "Engenharia de Software (ENS001)",
           "APNPs__-_ADS_-_5_Semestre": "Gerência de Projetos (GPR001)",
-          "Você_estava_matriculado_(a)_em_alguma(s)_disciplina(s)_de_outro(s)_curso(s)_antes_da_suspensão_do_calendário_acadêmico_em_16/03/2020?": "Não"
+          "Você_estava_matriculado_(a)_em_alguma(s)_disciplina(s)_de_outro(s)_curso(s)_antes_da_suspensão_do_calendário_acadêmico_em_16/03/2020?": "Não",
+          "disciplinas": [
+            "Matemática Aplicada à Computação (MAC001)",
+            "Engenharia de Software (ENS001)",
+            "Gerência de Projetos (GPR001)"
+          ]
+        },
+        {
+          "": "De acordo.",
+          "CPF": "61615616",
+          "curso": "Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas",
+          "Carimbo_de_data/hora": "27/10/2020 12:34:14",
+          "Endereço_de_e-mail": "everton.pavan@sertao.ifrs.edu.br",
+          "Nome_completo": "Renato Gaúcho",
+          "Telefone_para_contato": "161651616",
+          "E-mail_para_contato": "everton.pavan@sertao.ifrs.edu.br",
+          "Número_de_matrícula": "841815121",
+          "Modalidade_do_seu_curso": "Graduação (Bacharelados, Licenciaturas e  Cursos Superiores de Tecnologia)",
+          "APNPs_ADS_1_Semestre": "Matemática Aplicada à Computação (MAC001)",
+          "APNPs__-_ADS_-_3_Semestre": "Engenharia de Software (ENS001)",
+          "APNPs__-_ADS_-_5_Semestre": "Gerência de Projetos (GPR001)",
+          "Você_estava_matriculado_(a)_em_alguma(s)_disciplina(s)_de_outro(s)_curso(s)_antes_da_suspensão_do_calendário_acadêmico_em_16/03/2020?": "Não",
+          "disciplinas": [
+            "Matemática Aplicada à Computação (MAC001)",
+            "Engenharia de Software (ENS001)",
+            "Gerência de Projetos (GPR001)"
+          ]
         }
       ]
     },
     {
-      "curso": "AGRONOMIA",
+      "curso": "Curso Superior de Tecnologia em Agronegócio",
       "inscritos": [
         {
-          "Carimbo_de_data/hora": "27/10/2020 12:34:14",
+          "": "De acordo.",
+          "CPF": "14587896325",
+          "curso": "Curso Superior de Tecnologia em Agronegócio",
+          "Carimbo_de_data/hora": "27/10/2020 12:35:50",
           "Endereço_de_e-mail": "everton.pavan@sertao.ifrs.edu.br",
-          "Nome_completo": "Everton Pavan",
-          "Telefone_para_contato": "54999487701",
+          "Nome_completo": "Lebron James",
+          "Telefone_para_contato": "5499001122",
           "E-mail_para_contato": "everton.pavan@sertao.ifrs.edu.br",
-          "Número_de_matrícula": "1647383",
+          "Número_de_matrícula": "11111111",
           "Modalidade_do_seu_curso": "Graduação (Bacharelados, Licenciaturas e  Cursos Superiores de Tecnologia)",
-          "curso": "AGRONOMIA",
-          "Curso_(Graduação)": "AGRONOMIA",
-          "APNPs_ADS_1_Semestre": "Matemática Aplicada à Computação (MAC001)",
-          "APNPs__-_ADS_-_3_Semestre": "Engenharia de Software (ENS001)",
-          "APNPs__-_ADS_-_5_Semestre": "Gerência de Projetos (GPR001)",
-          "Você_estava_matriculado_(a)_em_alguma(s)_disciplina(s)_de_outro(s)_curso(s)_antes_da_suspensão_do_calendário_acadêmico_em_16/03/2020?": "Não"
+          "APNPs__-_AGN-_1_Semestre": "Fundamentos de Agricultura (FAG001)",
+          "APNPs__-_AGN-_3_Semestre": "Cooperativismo e Associativismo (CAS003)",
+          "Você_estava_matriculado_(a)_em_alguma(s)_disciplina(s)_de_outro(s)_curso(s)_antes_da_suspensão_do_calendário_acadêmico_em_16/03/2020?": "Sim",
+          "Nome_completo_da(s)_disciplina(s)_e_o_curso_em_que_estava(m)_sendo_ofertada(s)": "Zootecnia - Bovinocultura de leite",
+          "disciplinas": [
+            "Fundamentos de Agricultura (FAG001)",
+            "Cooperativismo e Associativismo (CAS003)"
+          ]
+        }
+      ]
+    },
+    {
+      "curso": "Técnico em Comércio Integrado ao ensino médio na modalidade PROEJA",
+      "inscritos": [
+        {
+          "": "De acordo.",
+          "CPF": "01296547896",
+          "curso": "Técnico em Comércio Integrado ao ensino médio na modalidade PROEJA",
+          "Carimbo_de_data/hora": "27/10/2020 18:23:07",
+          "Endereço_de_e-mail": "pavaneverton@gmail.com",
+          "Nome_completo": "Leonel Messi",
+          "Telefone_para_contato": "54996632558",
+          "E-mail_para_contato": "pavaneverton@gmail.com",
+          "Número_de_matrícula": "1884894",
+          "Modalidade_do_seu_curso": "Educação de Jovens e Adultos (EJA/PROEJA)",
+          "Turma_(Proeja)": "2019",
+          "APNPs_-_COM_-_Turma_2019": "Biologia, Fundamentos de Contabilidade aplicados ao comércio e serviços, Projeto Integrador II",
+          "disciplinas": [
+            "Biologia",
+            "Fundamentos de Contabilidade aplicados ao comércio e serviços",
+            "Projeto Integrador II"
+          ]
         }
       ]
     },
@@ -44,6 +100,9 @@
       "curso": "Técnico em Agropecuária - Subsequente ao ensino médio",
       "inscritos": [
         {
+          "": "De acordo.",
+          "CPF": "96578965123",
+          "curso": "Técnico em Agropecuária - Subsequente ao ensino médio",
           "Carimbo_de_data/hora": "28/10/2020 13:24:53",
           "Endereço_de_e-mail": "pavaneverton@gmail.com",
           "Nome_completo": "Cristiano Ronaldo",
@@ -51,9 +110,100 @@
           "E-mail_para_contato": "pavaneverton@gmail.com",
           "Número_de_matrícula": "777777",
           "Modalidade_do_seu_curso": "Técnico Subsequente ao Ensino Médio",
+          "APNPs_-_1_Semestre_-_Subsequente": "Manejo de solos e água (MSA003), Culturas Anuais I (CAN006), Propagação de Plantas (PRP002)",
+          "disciplinas": [
+            "Manejo de solos e água (MSA003)",
+            "Culturas Anuais I (CAN006)",
+            "Propagação de Plantas (PRP002)"
+          ]
+        },
+        {
+          "": "De acordo.",
+          "CPF": "123123213",
           "curso": "Técnico em Agropecuária - Subsequente ao ensino médio",
-          "Curso_(Subsequente)": "Técnico em Agropecuária - Subsequente ao ensino médio",
-          "APNPs_-_TAG_SUBSEQUENTE_-_1_Semestre": "Manejo de solos e água (MSA003), Culturas Anuais I (CAN006), Propagação de Plantas (PRP002)"
+          "Carimbo_de_data/hora": "28/10/2020 17:31:50",
+          "Endereço_de_e-mail": "everton.pavan@sertao.ifrs.edu.br",
+          "Nome_completo": "Neymar Jr.",
+          "Telefone_para_contato": "5433458048",
+          "E-mail_para_contato": "everton.pavan@sertao.ifrs.edu.br",
+          "Número_de_matrícula": "22132132112",
+          "Modalidade_do_seu_curso": "Técnico Subsequente ao Ensino Médio",
+          "APNPs_-_1_Semestre_-_Subsequente": "Associativismo (ASS002), Meio Ambiente (MEA002), Bioclimatologia (BCL002), Piscicultura (PIS004), Nutrição Animal (NAN002), Propagação de Plantas (PRP002)",
+          "disciplinas": [
+            "Associativismo (ASS002)",
+            "Meio Ambiente (MEA002)",
+            "Bioclimatologia (BCL002)",
+            "Piscicultura (PIS004)",
+            "Nutrição Animal (NAN002)",
+            "Propagação de Plantas (PRP002)"
+          ]
+        },
+        {
+          "": "De acordo.",
+          "CPF": "2121231213",
+          "curso": "Técnico em Agropecuária - Subsequente ao ensino médio",
+          "Carimbo_de_data/hora": "28/10/2020 18:07:57",
+          "Endereço_de_e-mail": "everton.pavan@sertao.ifrs.edu.br",
+          "Nome_completo": "Neymar",
+          "Telefone_para_contato": "5433458048",
+          "E-mail_para_contato": "everton.pavan@sertao.ifrs.edu.br",
+          "Número_de_matrícula": "12231221",
+          "Modalidade_do_seu_curso": "Técnico Subsequente ao Ensino Médio",
+          "APNPs_-_1_Semestre_-_Subsequente": "Paisagismo (PAI002), Culturas Anuais I (CAN006), Climatologia Agrícola (CAG002), Bioclimatologia (BCL002), Nutrição Animal (NAN002), Propagação de Plantas (PRP002)",
+          "disciplinas": [
+            "Paisagismo (PAI002)",
+            "Culturas Anuais I (CAN006)",
+            "Climatologia Agrícola (CAG002)",
+            "Bioclimatologia (BCL002)",
+            "Nutrição Animal (NAN002)",
+            "Propagação de Plantas (PRP002)"
+          ]
+        },
+        {
+          "": "De acordo.",
+          "CPF": "777777777777",
+          "curso": "Técnico em Agropecuária - Subsequente ao ensino médio",
+          "Carimbo_de_data/hora": "28/10/2020 13:24:53",
+          "Endereço_de_e-mail": "pavaneverton@gmail.com",
+          "Nome_completo": "Luan",
+          "Telefone_para_contato": "77777777",
+          "E-mail_para_contato": "pavaneverton@gmail.com",
+          "Número_de_matrícula": "111111111111111",
+          "Modalidade_do_seu_curso": "Técnico Subsequente ao Ensino Médio",
+          "APNPs_-_1_Semestre_-_Subsequente": "Manejo de solos e água (MSA003), Culturas Anuais I (CAN006), Propagação de Plantas (PRP002)",
+          "disciplinas": [
+            "Manejo de solos e água (MSA003)",
+            "Culturas Anuais I (CAN006)",
+            "Propagação de Plantas (PRP002)"
+          ]
+        }
+      ]
+    },
+    {
+      "curso": "Licenciatura em Ciências Agrícolas",
+      "inscritos": [
+        {
+          "": "De acordo.",
+          "CPF": "161651651",
+          "curso": "Licenciatura em Ciências Agrícolas",
+          "Carimbo_de_data/hora": "28/10/2020 17:31:03",
+          "Endereço_de_e-mail": "everton.pavan@sertao.ifrs.edu.br",
+          "Nome_completo": "Michael Jordan",
+          "Telefone_para_contato": "5433458048",
+          "E-mail_para_contato": "everton.pavan@sertao.ifrs.edu.br",
+          "Número_de_matrícula": "8888888",
+          "Modalidade_do_seu_curso": "Graduação (Bacharelados, Licenciaturas e  Cursos Superiores de Tecnologia)",
+          "APNPs__-_LICA_-_4_Semestre": "Políticas da Educação (PDE002)",
+          "APNPs__-_LICA_-_5_Semestre": "Bovinocultura de Leite (BOL001)",
+          "APNPs__-_LICA_-_7_Semestre": "Culturas Anuais II (CAN003)",
+          "APNPs__-_LICA_-_8_Semestre": "Educação Ambiental (EAM001)",
+          "Você_estava_matriculado_(a)_em_alguma(s)_disciplina(s)_de_outro(s)_curso(s)_antes_da_suspensão_do_calendário_acadêmico_em_16/03/2020?": "Não",
+          "disciplinas": [
+            "Políticas da Educação (PDE002)",
+            "Bovinocultura de Leite (BOL001)",
+            "Culturas Anuais II (CAN003)",
+            "Educação Ambiental (EAM001)"
+          ]
         }
       ]
     }
