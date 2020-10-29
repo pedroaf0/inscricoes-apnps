@@ -57,6 +57,9 @@ async function createSpreadSheet({ auth, createRequest }) {
   const res = await sheets.spreadsheets.create({
     auth,
     resource: {
+      properties: {
+        title: createRequest.title
+      },
       sheets: createRequest.sheets
       // [
       //   {
@@ -70,10 +73,7 @@ async function createSpreadSheet({ auth, createRequest }) {
       //     }
       //   }
       // ]
-      ,
-      properties: {
-        title: createRequest.title1
-      }
+      
     }
   });
   return res

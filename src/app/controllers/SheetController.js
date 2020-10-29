@@ -235,7 +235,6 @@ module.exports = {
     }
   },
 
-
   async createSheetByCourse(req, res) {
     try {
 
@@ -247,12 +246,15 @@ module.exports = {
 
       for (let course of courses) {
 
-        const createRequest = {
+        let createRequest = {
           title: '',
           sheets: []
         }
 
+        // { properties: { title: createRequest.sheetname } }
+
         createRequest.title = `${course.nome} - Homologação APNPs Dezembro/2020`
+
 
         // Procura na planilhas.json se a planilha já está inserida no json
         const foundPlanilhaInPlanilha = planilhas.planilhas.find(function (planilha) {
@@ -261,36 +263,23 @@ module.exports = {
           }
         })
 
-        // Jogar em array = todas as disciplinas do curso
-        // const foundDisciplinesInDisciplines = disciplinas.disciplinas.find(function (disciplina) {
-        //   if (course.nome == disciplina.curso) {
-        //     return true
-        //   }
-        // })
-
-        // if (foundDisciplinesInDisciplines) {
-        //   createRequest.sheets.push(disciplinas)
-        // }
-
-
-
-        // adicionar as disciplinas no createRequest
-
-
-
-
-
         if (!foundPlanilhaInPlanilha) {
 
-          // let indice = 0
-          disciplinas.disciplinas.map(function (disciplina, index) {
+          disciplinas.disciplinas.map(function (disciplina) {
             if (course.nome == disciplina.curso) {
-              createRequest.sheets.push(disciplina.disciplinas)  // ta array dentro de array , tem que ser objeto
+              let aux = []
+              for (let i = 0; i <= disciplina.disciplinas.length - 1; i++) {
+                aux.push({ properties: { title: disciplina.disciplinas[i] } })
+              }
+
+              // console.log(aux)
+              createRequest.sheets.push(...aux)
             }
           })
 
           console.log(createRequest)
 
+          // res.status(200).json(createRequest)
 
 
           const createResponse = await createSpreadSheet({
