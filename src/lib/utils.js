@@ -90,7 +90,9 @@ module.exports = {
                         value = value.split(',')
                         for (let i = 0; i <= value.length - 1; i++) {
                             value[i] = value[i].trim()
+                            // APNPs.push(...value)
                             APNPs.push(value[i])
+
                         } 
                     }else {
                         APNPs.push(value)

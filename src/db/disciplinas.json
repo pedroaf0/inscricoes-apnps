@@ -2,23 +2,43 @@
   "disciplinas": [
     {
       "curso": "Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas",
-      "disciplinas": []
+      "disciplinas": [
+        "Matemática Aplicada à Computação (MAC001)",
+        "Engenharia de Software (ENS001)",
+        "Gerência de Projetos (GPR001)"
+      ]
     },
     {
       "curso": "Curso Superior de Tecnologia em Agronegócio",
-      "disciplinas": []
+      "disciplinas": [
+        "Fundamentos de Agricultura (FAG001)",
+        "Cooperativismo e Associativismo (CAS003)"
+      ]
     },
     {
       "curso": "Técnico em Comércio Integrado ao ensino médio na modalidade PROEJA",
-      "disciplinas": []
+      "disciplinas": [
+        "Biologia",
+        "Fundamentos de Contabilidade aplicados ao comércio e serviços",
+        "Projeto Integrador II"
+      ]
     },
     {
       "curso": "Técnico em Agropecuária - Subsequente ao ensino médio",
-      "disciplinas": []
+      "disciplinas": [
+        "Manejo de solos e água (MSA003)",
+        "Culturas Anuais I (CAN006)",
+        "Propagação de Plantas (PRP002)"
+      ]
     },
     {
       "curso": "Licenciatura em Ciências Agrícolas",
-      "disciplinas": []
+      "disciplinas": [
+        "Políticas da Educação (PDE002)",
+        "Bovinocultura de Leite (BOL001)",
+        "Culturas Anuais II (CAN003)",
+        "Educação Ambiental (EAM001)"
+      ]
     }
   ]
 }
