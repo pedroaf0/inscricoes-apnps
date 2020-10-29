@@ -16,7 +16,19 @@ const request = {
 }
 
 const createRequest = {
-  title: 'CriadaPlanilha '
+  title: 'CriadaPlanilha ',
+  sheets: [
+    {
+      properties: {
+        title: 'DICIPLINA-1'
+      }
+    },
+    {
+      properties: {
+        title: '20-PLANILHA'
+      }
+    }
+  ]
 }
 
 // 

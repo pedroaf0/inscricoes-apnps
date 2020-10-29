@@ -14,7 +14,7 @@ const routes = express.Router()
 // routes.get('/inscritos', SheetController.testGetSpreadSheet)
 // routes.get('/inscritos', SheetController.testGetSpreadSheetValues)
 // routes.get('/inscritos', SheetController.testCopySpreadSheet)
-// routes.get('/inscritos', SheetController.testCreateSpreadSheet)
+routes.get('/teste', SheetControllerTests.testCreateSpreadSheet)
 // routes.get('/inscritos', SheetController.testMoveSpreadSheet)
 // routes.get('/inscritos', SheetController.testChangePermissionsSpreadSheet)
 // routes.get('/inscritos', SheetController.testAppendSpreadSheetValues)
@@ -31,9 +31,17 @@ const routes = express.Router()
 // routes.get('/inscritos/relatorios', SheetReportFinal.runReports)
 // routes.get('/inscritos/excluir', SheetGetAlunosExclusao.getSpreadSheetValues)
 
-routes.get('/inscritos', SheetController.getDataInscritos)
-routes.get('/cursos', SheetController.populateCursos)
-routes.get('/inscritos-por-curso', SheetController.populateInscritosPorCurso)
+routes.get('/inscritos', SheetController.getEnrollers)
+routes.get('/cursos', SheetController.getCourses)
+routes.get('/disciplinas', SheetController.getDisciplinesByCourse)
+routes.get('/inscritos-por-curso', SheetController.getEnrollersByCourse)
+routes.get('/planilhas', SheetController.createSheetByCourse)
+routes.get('/atualizacao-planilhas', SheetController.populateSheetsWithEnrollersByCourse)
+
+
+
+
+
 
 
 

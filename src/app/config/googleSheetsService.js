@@ -57,8 +57,22 @@ async function createSpreadSheet({ auth, createRequest }) {
   const res = await sheets.spreadsheets.create({
     auth,
     resource: {
+      sheets: createRequest.sheets
+      // [
+      //   {
+      //     properties: {
+      //       title: createRequest.sheetname
+      //     }
+      //   },
+      //   {
+      //     properties: {
+      //       title: createRequest.sheetname2
+      //     }
+      //   }
+      // ]
+      ,
       properties: {
-        title: createRequest.title
+        title: createRequest.title1
       }
     }
   });

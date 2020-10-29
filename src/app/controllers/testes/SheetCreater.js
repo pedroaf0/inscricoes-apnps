@@ -27,7 +27,7 @@ module.exports = {
 
                 createRequest.title = `${curso.nome} - Homologação APNPs Dezembro/2020`
 
-                // Procura na planilhas.json se a planilha já inserida no json
+                // Procura na planilhas.json se a planilha já está inserida no json
                 const foundPlanilhaInPlanilha = planilhas.planilhas.find(function (planilha) {
                     if (createRequest.title == planilha.nome) {
                         return true

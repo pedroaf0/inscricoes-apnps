@@ -2,7 +2,7 @@ module.exports = {
 
     async formatToObjetc(alunos) {
 
-        const data  = alunos
+        const data = alunos
         var collection = data.slice(); // make a copy
         var keys = collection.shift();
 
@@ -15,10 +15,86 @@ module.exports = {
 
             return obj;
         });
-        
+
         const resultado = collection
         return resultado
 
+    },
+    async deleteEmptyColumn(inscritos) {
+        for (let inscrito of inscritos) {
+            for (let [key, value] of Object.entries(inscrito)) {
+                if (value == '' || value == undefined || value == null) {
+                    delete inscrito[key]
+                }
+            }
+        }
+
+        return inscritos
+    },
+    async organizeColumnCourse(inscritos) {
+
+        for (let inscrito of inscritos) {
+            for (let [key, value] of Object.entries(inscrito)) {
+                let filtro = key.includes('Curso')
+                if (filtro) {
+                    curso = value
+                    Object.assign(inscrito, { curso });
+                    // console.log(key)
+                    // console.log(value)
+                    delete inscrito[key]
+                }
+
+            }
+
+        }
+        return inscritos
+    },
+    async changeSpaceToUnderline(inscritos) {
+
+        for (let inscrito of inscritos) {
+            for (let [key, value] of Object.entries(inscrito)) {
+
+                let filtro = key.includes(' ')
+                if (filtro) {
+
+                    let oldKey = key
+
+                    var i = 0, keyLength = key.length;
+                    // console.log(keyLength)
+                    for (i; i < keyLength; i++) {
+                        key = key.replace(" ", "_");
+                    }
+
+                    inscrito[key] = value
+                    delete inscrito[oldKey]
+                }
+
+            }
+        }
+
+        return inscritos
+    },
+    async addColumnDisciplines(inscritos) {
+
+        for (let inscrito of inscritos) {
+
+            var APNPs = []
+
+            for (let [key, value] of Object.entries(inscrito)) {
+
+                let filtroAPNPs = key.includes('APNPs')
+                if (filtroAPNPs) {
+                    APNPs.push(value)
+                    console.log(APNPs)
+                }
+
+                //talvez precisar jogar como objeto = no momento é um array
+                inscrito.disciplinas = APNPs
+
+            }
+        }
+        // console.log(inscritos)
+        return inscritos
     }
 
 }
