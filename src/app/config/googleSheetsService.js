@@ -60,20 +60,7 @@ async function createSpreadSheet({ auth, createRequest }) {
       properties: {
         title: createRequest.title
       },
-      sheets: createRequest.sheets
-      // [
-      //   {
-      //     properties: {
-      //       title: createRequest.sheetname
-      //     }
-      //   },
-      //   {
-      //     properties: {
-      //       title: createRequest.sheetname2
-      //     }
-      //   }
-      // ]
-      
+      sheets: createRequest.sheets     
     }
   });
   return res

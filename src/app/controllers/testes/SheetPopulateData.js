@@ -1,6 +1,6 @@
-const { getAuthToken, appendSpreadSheetValues } = require('../config/googleSheetsService');
+const { getAuthToken, appendSpreadSheetValues } = require('../../config/googleSheetsService');
 const data = require('../../db/data.json')
-const { planilhas } = require('../../db/planilhas.json')
+const { planilhas } = require('../../../db/planilhas.json')
 
 
 module.exports = {
@@ -53,13 +53,16 @@ module.exports = {
                     appendOptions
                 })
 
+               console.log('output for appendSpreadSheetValues', JSON.stringify(response, null, 2));
+               console.log(`--------------------------------------------------------------`)
+
             }
 
             // criar um response de todas as planilhas atualizadas com id e data
             // console.log('output for appendSpreadSheetValues', JSON.stringify(response, null, 2));
             // res.status(200).json({ appendData: response }) 
 
-            res.status(200).json('Planilhas atualizadas com sucesso!')
+            // res.status(200).json('Planilhas atualizadas com sucesso!')
 
         } catch (error) {
             console.error(error); //remover

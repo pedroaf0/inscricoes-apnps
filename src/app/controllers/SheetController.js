@@ -8,6 +8,7 @@ const coordenadores = require('../../db/coordenadores.json')
 const planilhas = require('../../db/planilhas.json')
 const disciplinas = require('../../db/disciplinas.json');
 const { addListener } = require('process');
+const { composer } = require('googleapis/build/src/apis/composer');
 
 
 
@@ -97,6 +98,7 @@ module.exports = {
 
     }
   },
+
   async getEnrollersByCourse(req, res) {
     try {
 
@@ -164,7 +166,6 @@ module.exports = {
 
     }
   },
-
 
   async getDisciplinesByCourse(req, res) {
     try {
@@ -238,8 +239,6 @@ module.exports = {
   async createSheetByCourse(req, res) {
     try {
 
-
-
       const auth = await getAuthToken();
 
       const courses = cursos.cursos
@@ -251,10 +250,7 @@ module.exports = {
           sheets: []
         }
 
-        // { properties: { title: createRequest.sheetname } }
-
         createRequest.title = `${course.nome} - Homologação APNPs Dezembro/2020`
-
 
         // Procura na planilhas.json se a planilha já está inserida no json
         const foundPlanilhaInPlanilha = planilhas.planilhas.find(function (planilha) {
@@ -272,15 +268,9 @@ module.exports = {
                 aux.push({ properties: { title: disciplina.disciplinas[i] } })
               }
 
-              // console.log(aux)
               createRequest.sheets.push(...aux)
             }
           })
-
-          console.log(createRequest)
-
-          // res.status(200).json(createRequest)
-
 
           const createResponse = await createSpreadSheet({
             auth,
@@ -302,69 +292,59 @@ module.exports = {
             auth,
             moveRequest
           })
-          /* 
-                     // Dar permissões para os coordenadores de acordo com o curso
-                     const permissionsRequest = {
-                       fileId: '',
-                       role: 'writer',
-                       type: 'user',
-                       emailAddress: '',
-                     }
-           
-                     permissionsRequest.fileId = idNewSpreadsheet
-                     var coordenadorSelecionado
-                     // Procura no JSON coordenadores os cursos do JSON curso // Atenção aqui: os nomes do cursos nos jsons devem ser iguais
-                     const foundCourseInCoordenadores = coordenadores.coordenadores.find(function (coordenador) {
-                       if (coordenador.curso == course.nome) {
-                         permissionsRequest.emailAddress = coordenador.email
-                         coordenadorSelecionado = coordenador.nome
-                         return true
-                       }
-                     })
-           
-                     if (!foundCourseInCoordenadores) {
-                       permissionsRequest.emailAddress = "ensino@teste.com"
-                       coordenadorSelecionado = "Sem coordenador!"
-                       console.log(`Não foi encontrado o curso: ${course.nome} na tabela de coordenadores!`)
-                     }
-           
-           
-           
-                     ///
-           
-                     const responseChange = await changePermissionsSpreadSheet({
-                       auth,
-                       permissionsRequest
-                     });
-           
-           
-                     planilhas.planilhas.push({
-                       nome:
-                         `${createRequest.title}`,
-                       curso: `${course.nome}`,
-                       coordenador: `${coordenadorSelecionado}`,
-                       email: `${permissionsRequest.emailAddress}`,
-                       id: idNewSpreadsheet,
-                       url: urlNewSpreadsheet
-                     })
-                     */
+
+          // Dar permissões para os coordenadores de acordo com o curso
+          const permissionsRequest = {
+            fileId: '',
+            role: 'writer',
+            type: 'user',
+            emailAddress: '',
+          }
+
+          permissionsRequest.fileId = idNewSpreadsheet
+          var coordenadorSelecionado
+          // Procura no JSON coordenadores os cursos do JSON curso // Atenção aqui: os nomes do cursos nos jsons devem ser iguais
+          const foundCourseInCoordenadores = coordenadores.coordenadores.find(function (coordenador) {
+            if (coordenador.curso == course.nome) {
+              permissionsRequest.emailAddress = coordenador.email
+              coordenadorSelecionado = coordenador.nome
+              return true
+            }
+          })
+
+          if (!foundCourseInCoordenadores) {
+            permissionsRequest.emailAddress = "ensino@teste.com"
+            coordenadorSelecionado = "Sem coordenador!"
+            console.log(`Não foi encontrado o curso: ${course.nome} na tabela de coordenadores!`)
+          }
+
+          const responseChange = await changePermissionsSpreadSheet({
+            auth,
+            permissionsRequest
+          });
+
+          planilhas.planilhas.push({
+            nome:
+              `${createRequest.title}`,
+            curso: `${course.nome}`,
+            coordenador: `${coordenadorSelecionado}`,
+            email: `${permissionsRequest.emailAddress}`,
+            id: idNewSpreadsheet,
+            url: urlNewSpreadsheet
+          })
+
         } else {
           console.log(`A planilha ${createRequest.title} já existe!`)
-
         }
-
       }
-      /*
-  
-            // Grava no arquivo JSON planilhas os dados das planilhas geradas
-            fs.writeFile("./src/db/planilhas.json", JSON.stringify(planilhas, null, 2), function (err) {
-              if (err) return res.send("Write file error!")
-      
-            })
-      
-            console.log(planilhas) //remover
-            res.status(200).json(planilhas)
-    */
+
+      // Grava no arquivo JSON planilhas os dados das planilhas geradas
+      fs.writeFile("./src/db/planilhas.json", JSON.stringify(planilhas, null, 2), function (err) {
+        if (err) return res.send("Write file error!")
+      })
+
+      res.status(200).json(planilhas)
+
     } catch (error) {
       console.log(error.message, error.stack);
     }
@@ -373,59 +353,89 @@ module.exports = {
   async populateSheetsWithEnrollersByCourse(req, res) {
     try {
 
+      const auth = await getAuthToken();
 
-      // let response = ''
       const sheets = planilhas.planilhas
       for (const sheet of sheets) {
 
-        const foundSheetCourseInEnrollersByCourse = inscritosPorCurso.inscritos.find(function (inscritos, foundIndex) {
+        let index = 0
+        const foundCourseSheetsInEnrollersByCourse = inscritosPorCurso.inscritos.find(function (inscritos, foundIndex) {
           if (sheet.curso == inscritos.curso) {
             index = foundIndex
-            return inscritos
+            // console.log(inscritos.inscritos)
+            return inscritos.inscritos
           }
         })
 
-        const arrayAlunos = []
+        if (foundCourseSheetsInEnrollersByCourse) {
 
-        const headers = Object.keys(foundSheetCourseInEnrollersByCourse.inscritos[0])
-        headers.push('HOMOLOGAÇÃO')
-        arrayAlunos.push(headers)
+          console.log(`INFORMAÇÕES DO CURSO: ${sheet.curso}`)
+
+          console.log(`QUANTIDADE DE INSCRITOS NO CURSO: ${foundCourseSheetsInEnrollersByCourse.inscritos.length}`)
+          for (i = 0; i < foundCourseSheetsInEnrollersByCourse.inscritos.length; i++) {
+            console.log(`ALUNOOOOO`)
+            console.log(foundCourseSheetsInEnrollersByCourse.inscritos[i].Nome_completo)
+
+            // Dados que irão para a planilha - Cabeçalho + dados do inscrito
+            const arrayEnrollerData = []
+            // const headers = Object.keys(foundCourseSheetsInEnrollersByCourse.inscritos[0])
+            // headers.push('HOMOLOGAÇÃO') // Adicione aqui caso queira adicionar mais colunas 
+            // arrayEnrollerData.push(headers)
+
+            const valores = Object.values(foundCourseSheetsInEnrollersByCourse.inscritos[i])
+            valores.splice(valores.indexOf('disciplinas'), 1);
+            arrayEnrollerData.push(valores)
+            console.log(i)
+            console.log(arrayEnrollerData)
+
+            const disciplinaEnroller = foundCourseSheetsInEnrollersByCourse.inscritos[i].disciplinas
+
+            // console.log(foundCourseSheetsInEnrollersByCourse.inscritos[i].Nome_completo)
+            console.log(disciplinaEnroller)
+            console.log(disciplinaEnroller.length)
+            console.log(`--------------------------------------`)
+          
 
 
 
-        for (i = 0; i < foundSheetCourseInEnrollersByCourse.inscritos.length; i++) {
-          const valores = Object.values(foundSheetCourseInEnrollersByCourse.inscritos[i])
+            for (j = 0; j < disciplinaEnroller.length; j++) {
+                  var appendOptions = {
+                    spreadsheetId: sheet.id,
+                    range: disciplinaEnroller[j],
+                    valueInputOption: 'RAW',
+                    insertDataOption: 'OVERWRITE',
+                    resource:
+                    {
+                      majorDimension: 'ROWS',
+                      values: arrayEnrollerData
+                    },
+                  }
+                  console.log(appendOptions)
 
-          // Verificar se inscrito já está na planilha
+                  console.log(`--------------------------------------`)
+                  response = await appendSpreadSheetValues({
+                    auth,
+                    appendOptions
+                  })
+            }
+
+            
+
+            
+            ///QUASE SÓ INSERINDO OPRIMEIRO ALUNO CURSO
+            console.log('PASSOU 1')
+
+            // )
 
 
 
-          arrayAlunos.push(valores)
+
+          }
         }
-
-
-
-        const appendOptions = {
-          spreadsheetId: sheet.id,
-          range: 'Sheet1',
-          valueInputOption: 'USER_ENTERED',
-          insertDataOption: 'OVERWRITE',
-          resource:
-          {
-            majorDimension: 'ROWS',
-            values: arrayAlunos
-          },
-        }
-
-        const auth = await getAuthToken();
-        response = await appendSpreadSheetValues({
-          auth,
-          appendOptions
-        })
 
       }
 
-      res.status(200).json('Planilhas atualizadas com sucesso!')
+      // res.status(200).json('Planilhas atualizadas com sucesso!')
 
     } catch (error) {
       console.log(error.message, error.stack);
